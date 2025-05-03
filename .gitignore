@@ -1,0 +1,21 @@
+# Ignorer les dossiers de temps de simulation générés (> 0)
+[0-9]*.*
+[0-9]*
+
+# Fichiers de maillage générés
+constant/polyMesh/
+
+# Résultats de calcul
+postProcessing/
+processor*/
+
+# Fichier foam.foam pour paraview
+foam.foam
+
+# Fichier de log
+log.*
+
+# Fichier à garder
+!0.orig
+!constant
+!constant/transportProperties

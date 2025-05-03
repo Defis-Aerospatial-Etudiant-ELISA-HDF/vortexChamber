@@ -1,0 +1,36 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+# Valeur par défaut
+ALL_RUN=1
+
+# Traitement des options
+while getopts "m" opt; do
+  case "$opt" in
+    m)
+      ALL_RUN=0
+      ;;
+    *)
+      echo "Usage: $0 [-m]"
+      exit 1
+      ;;
+  esac
+done
+
+restore0Dir
+
+# create mesh
+runApplication blockMesh
+runApplication checkMesh
+
+# Create foam.foam for paraview
+touch foam.foam
+
+if [ "$ALL_RUN" -eq 1 ]; then
+    runApplication $(getApplication)
+fi
+
+
+#------------------------------------------------------------------------------
