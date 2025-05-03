@@ -18,10 +18,10 @@ FoamFile
 solution
 {
     active          true;
-    coupled         false;
+    coupled         yes;
     transient       yes;
-    cellValueSourceCorrection off;
-    maxCo           0.3;
+    cellValueSourceCorrection on;
+    maxCo           0.5;
 
     sourceTerms
     {
@@ -78,24 +78,26 @@ subModels
         {
             type                reactingMultiphaseLookupTableInjection;
             massTotal           0.0028;
-            parcelBasisType     mass;
+            parcelBasisType     fixed;//mass;
+            nParticle           1000;
             SOI                 0;
 
             inputFile           "parcelInjectionProperties_H2O";
             duration            1.0;
-            parcelsPerSecond    2000;
+            parcelsPerSecond    2000;//2000;
             randomise           true;
         }
         model2
         {
             type                reactingMultiphaseLookupTableInjection;
             massTotal           0.0001;
-            parcelBasisType     mass;
+            parcelBasisType     fixed;//mass;
+            nParticle           1000;
             SOI                 0;
 
             inputFile           "parcelInjectionProperties_C3H8";
             duration            1.0;
-            parcelsPerSecond    2000;
+            parcelsPerSecond    2000;//2000;
             randomise           true;
         }
     }
@@ -114,7 +116,7 @@ subModels
 
     surfaceReactionModel none;
 
-    stochasticCollisionModel none;
+    stochasticCollisionModel none; //none;
 
     surfaceFilmModel none;
 
