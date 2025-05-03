@@ -21,9 +21,15 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
-    walls
+    "Walls.*"
     {
         type            noSlip;
+    }
+
+    Outlet
+    {
+        type            zeroGradient;
+        //freestreamValue uniform 1;
     }
 }
 

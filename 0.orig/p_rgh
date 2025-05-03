@@ -21,9 +21,14 @@ internalField   uniform 100000;
 
 boundaryField
 {
-    walls
+    "Walls.*"
     {
         type            fixedFluxPressure;
+    }
+
+    Outlet
+    {
+        type            zeroGradient;
     }
 }
 

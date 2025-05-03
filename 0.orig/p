@@ -21,10 +21,16 @@ internalField   uniform 100000;
 
 boundaryField
 {
-    walls
+    "Walls.*"
     {
         type            calculated;
         value           $internalField;
+    }
+
+    Outlet
+    {
+        type            zeroGradient;
+        //freeStreamValue freestreamPressure;
     }
 }
 
