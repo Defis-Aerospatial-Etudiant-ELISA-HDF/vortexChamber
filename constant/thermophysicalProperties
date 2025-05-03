@@ -38,7 +38,7 @@ inertSpecie     air;
 
 liquids
 {
-    H2O;
+    N2O;
     C3H8;
 }
 

@@ -18,38 +18,33 @@ FoamFile
 application     reactingParcelFoam;
 
 startFrom       startTime;
-
 startTime       0;
 
 stopAt          endTime;
+endTime         2;
 
-endTime         3;
-
-deltaT          1e-3;
-
+deltaT          1e-6;
 writeControl    adjustable;
-
 writeInterval   0.05;
-
-purgeWrite      10;
+purgeWrite      0;
 
 writeFormat     ascii;
-
 writePrecision  10;
-
 writeCompression off;
 
 timeFormat      general;
-
 timePrecision   6;
 
 runTimeModifiable true;
-
 adjustTimeStep  yes;
 
 maxCo           5;
-
 maxDeltaT       1e-3;
+
+
+libs (
+    "libliquidN2O.so"
+);
 
 
 // ************************************************************************* //

@@ -16,5 +16,18 @@ FoamFile
 
 simulationType  laminar;
 
+//  Modèle	              Avantages	                          Inconvénients	                               Recommandé pour
+// kEpsilon	  ->       Robuste, rapide	     |  Moins bon dans les zones avec fort gradient	 |          Flux attachés, tuyaux
+// kOmega	  ->   Meilleur en proche paroi	 |             Moins robuste que k-ε	         |           Écoulements internes
+// kOmegaSST  ->	  Combine les deux	     |                Plus coûteux	                 |  Parfait pour les chambres, vortex, jets
+
+RAS
+{
+    RASModel        kEpsilon;
+
+    turbulence      on;
+
+    printCoeffs     on;
+}
 
 // ************************************************************************* //

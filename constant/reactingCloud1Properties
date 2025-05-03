@@ -74,15 +74,15 @@ subModels
     injectionModels
     {
 
-        model1
+        model_N2O
         {
             type                reactingMultiphaseLookupTableInjection;
-            massTotal           0.0001;
+            massTotal           0.0028;
             parcelBasisType     mass;
             SOI                 0;
 
             inputFile           "parcelInjectionProperties_H2O";
-            duration            3.0;
+            duration            1.0;
             parcelsPerSecond    2000;
             randomise           true;
         }
@@ -94,7 +94,7 @@ subModels
             SOI                 0;
 
             inputFile           "parcelInjectionProperties_C3H8";
-            duration            3.0;
+            duration            1.0;
             parcelsPerSecond    2000;
             randomise           true;
         }
@@ -134,7 +134,7 @@ subModels
             }
             liquid
             {
-                H2O  0.5;
+                N2O  0.5;
                 C3H8 0.5;
             }
             solid
