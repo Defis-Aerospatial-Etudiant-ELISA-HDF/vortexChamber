@@ -6,9 +6,10 @@ cd "${0%/*}" || exit                                # Run from this directory
 # Valeur par défaut
 ALL_RUN=1
 PARALLEL=0
+CLEANUP=0
 
 # Traitement des options
-while getopts "mp" opt; do
+while getopts "mpc" opt; do
   case "$opt" in
     m)
       ALL_RUN=0
@@ -16,12 +17,19 @@ while getopts "mp" opt; do
     p)
       PARALLEL=1
       ;;
+    c)
+      CLEANUP=1
+      ;;
     *)
-      echo "Usage: $0 [-m] [-p]"
+      echo "Usage: $0 [-m] [-p] [-c]"
       exit 1
       ;;
   esac
 done
+
+if [ "$CLEANUP" -eq 1 ]; then
+  ./Allclean
+fi
 
 restore0Dir
 

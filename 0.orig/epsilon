@@ -9,25 +9,28 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      turbulenceProperties;
+    class       volScalarField;
+    object      epsilon;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType  laminar;
+dimensions      [0 2 -3 0 0 0 0];
 
-//  Modèle	              Avantages	                          Inconvénients	                               Recommandé pour
-// kEpsilon	  ->       Robuste, rapide	     |  Moins bon dans les zones avec fort gradient	 |          Flux attachés, tuyaux
-// kOmega	  ->   Meilleur en proche paroi	 |             Moins robuste que k-ε	         |           Écoulements internes
-// kOmegaSST  ->	  Combine les deux	     |                Plus coûteux	                 |  Parfait pour les chambres, vortex, jets
+internalField   uniform 0.0449;
 
-RAS
+boundaryField
 {
-    RASModel        kOmega;
+    "Walls.*"
+    {
+        type            epsilonWallFunction;
+        value           uniform 0.0449;
+    }
 
-    turbulence      on;
-
-    printCoeffs     on;
+    Outlet
+    {
+        type            zeroGradient;
+    }
 }
+
 
 // ************************************************************************* //

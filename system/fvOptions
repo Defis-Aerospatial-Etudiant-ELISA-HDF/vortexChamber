@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2412                                 |
+|  \\    /   O peration     | Version:  2412                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -9,42 +9,20 @@ FoamFile
 {
     version     2.0;
     format      ascii;
+    arch        "LSB;label=32;scalar=64";
     class       dictionary;
     location    "system";
-    object      controlDict;
+    object      fvOptions;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     reactingParcelFoam;
-
-startFrom       startTime;
-startTime       0;
-
-stopAt          endTime;
-endTime         1;
-
-deltaT          1e-6;
-writeControl    adjustable;
-writeInterval   0.05;
-purgeWrite      0;
-
-writeFormat     ascii;
-writePrecision  10;
-writeCompression off;
-
-timeFormat      general;
-timePrecision   6;
-
-runTimeModifiable true;
-adjustTimeStep  yes;
-
-maxCo           5;
-maxDeltaT       1e-3;
-
-
-libs (
-    "libliquidN2O.so"
-);
-
-
-// ************************************************************************* //
+//limitT
+//{
+//    type            limitTemperature;
+//    active          yes;
+//
+//    selectionMode   all;
+//    min             200;
+//    max             500;
+//    //phase           liquid; // optional
+//}
