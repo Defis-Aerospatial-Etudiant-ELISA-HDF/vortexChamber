@@ -100,7 +100,7 @@ subModels
         }
     }
 
-    dispersionModel none;
+    dispersionModel none;//gradientDispersionRAS;//none;
 
     patchInteractionModel standardWallInteraction;
 
